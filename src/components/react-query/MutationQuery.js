@@ -18,15 +18,27 @@ function MutationQuery() {
 		onSuccess: (createdPostData) => {
 			// queryClient.invalidateQueries('posts'); // not recommended as updated object comes in response
 			console.log({ data: createdPostData.data });
+			const previousPostData = queryClient.getQueriesData('posts');
 			queryClient.setQueriesData('posts', (oldPostsData) => {
+				console.log(createdPostData?.data?.id + 1);
 				return {
 					...oldPostsData,
-					data: [...oldPostsData?.data, createdPostData?.data],
+					data: [
+						...oldPostsData?.data,
+						{ id: createdPostData?.data?.id + 1, ...createdPostData?.data },
+					],
 				};
 			});
+			return {
+				previousPostData,
+			};
 		},
-		onError: () => {
+		onError: (_error, _post, _context) => {
 			// queryClient.invalidateQueries('posts');
+			queryClient.setQueriesData('posts', _context?.previousPostData);
+		},
+		onSettled: () => {
+			queryClient.invalidateQueries('posts');
 		},
 	});
 	console.log({ isFetching, isLoading }, new Date().toGMTString());
