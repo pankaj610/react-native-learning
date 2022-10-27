@@ -9,6 +9,7 @@ import { enableScreens } from 'react-native-screens';
 import { Snackbar } from 'react-native-paper';
 import ReactQuery from '../components/react-query/ReactQuery';
 import InfiniteQuery from '../components/react-query/InfiniteQuery';
+import MutationQuery from '../components/react-query/MutationQuery';
 
 enableScreens();
 const Stack = createNativeStackNavigator();
@@ -28,6 +29,7 @@ class RootNavigation extends Component {
 					</>
 				) : (
 					<>
+						<Stack.Screen component={MutationQuery} name="MutationQuery" />
 						<Stack.Screen component={InfiniteQuery} name="InfiniteQuery" />
 						<Stack.Screen component={ReactQuery} name="ReactQuery" />
 						<Stack.Screen component={Login} name="Login" />
