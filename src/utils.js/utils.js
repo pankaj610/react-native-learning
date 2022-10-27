@@ -1,5 +1,5 @@
 
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TOKEN } from '../constants';
 export const actionCreator = (type, payload, ...rest) => {
     return ({
