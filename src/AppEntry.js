@@ -22,6 +22,7 @@ import { Provider } from 'react-redux';
 import RootNavigation from './router/rootNavigation';
 import store from './store';
 import { QueryClientProvider, QueryClient } from 'react-query';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 // import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 // GoogleSignin.configure({
@@ -32,15 +33,17 @@ const queryClient = new QueryClient();
 class AppEntry extends React.Component {
 	render() {
 		return (
-			<QueryClientProvider client={queryClient}>
-				<PaperProvider>
-					<Provider store={store}>
-						<NavigationContainer>
-							<RootNavigation></RootNavigation>
-						</NavigationContainer>
-					</Provider>
-				</PaperProvider>
-			</QueryClientProvider>
+			<GestureHandlerRootView style={{ flex: 1 }}>
+				<QueryClientProvider client={queryClient}>
+					<PaperProvider>
+						<Provider store={store}>
+							<NavigationContainer>
+								<RootNavigation></RootNavigation>
+							</NavigationContainer>
+						</Provider>
+					</PaperProvider>
+				</QueryClientProvider>
+			</GestureHandlerRootView>
 		);
 	}
 }

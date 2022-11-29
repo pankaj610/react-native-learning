@@ -10,32 +10,53 @@ import { Snackbar } from 'react-native-paper';
 import ReactQuery from '../components/react-query/ReactQuery';
 import InfiniteQuery from '../components/react-query/InfiniteQuery';
 import MutationQuery from '../components/react-query/MutationQuery';
-
+import ReAnimatedAnimations from '../components/reanimated/ReAnimatedAnimations';
+import LayoutAnimations from '../components/reanimated/LayoutAnimation';
+import ScrollExampleComponent from '../components/reanimated/ScrollAnimationEx';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import WorkletExample from '../components/reanimated/WorkletExample';
+import PanGestureHandlerExample from '../components/reanimated/PanGestureHandlerExample';
+import ScrollProAnimation from '../components/reanimated/ScrollProAnimation';
+import PinGestureHandlerExample from '../components/reanimated/PinGestureHandlerExample';
+import TapGestureHandlerExample from '../components/reanimated/TapGestureHandlerExample';
 enableScreens();
 const Stack = createNativeStackNavigator();
-
+const Drawer = createDrawerNavigator();
 class RootNavigation extends Component {
 	render() {
 		const { isSignedIn } = this.props;
-		return (
+		return isSignedIn ? (
 			<Stack.Navigator>
-				{isSignedIn ? (
-					<>
-						<Stack.Screen
-							component={DrawerNavigation}
-							name="DrawerStack"
-							options={{ headerShown: false }}
-						/>
-					</>
-				) : (
-					<>
-						<Stack.Screen component={MutationQuery} name="MutationQuery" />
-						<Stack.Screen component={InfiniteQuery} name="InfiniteQuery" />
-						<Stack.Screen component={ReactQuery} name="ReactQuery" />
-						<Stack.Screen component={Login} name="Login" />
-					</>
-				)}
+				<Stack.Screen
+					component={DrawerNavigation}
+					name="DrawerStack"
+					options={{ headerShown: false }}
+				/>
 			</Stack.Navigator>
+		) : (
+			<Drawer.Navigator>
+				<Drawer.Screen
+					component={TapGestureHandlerExample}
+					name="TapGestureHandlerExample"
+				/>
+				<Drawer.Screen
+					component={PinGestureHandlerExample}
+					name="PinGestureHandlerExample"
+				/>
+				<Drawer.Screen component={ScrollProAnimation} name="ScrollProAnimation" />
+				<Drawer.Screen
+					component={PanGestureHandlerExample}
+					name="PanGestureHandlerExample"
+				/>
+				<Drawer.Screen component={WorkletExample} name="WorkletExample" />
+				<Drawer.Screen component={ScrollExampleComponent} name="ScrollExampleComponent" />
+				<Drawer.Screen component={ReAnimatedAnimations} name="ReAnimated" />
+				<Drawer.Screen component={LayoutAnimations} name="LayoutAnimation" />
+				<Drawer.Screen component={MutationQuery} name="MutationQuery" />
+				<Drawer.Screen component={InfiniteQuery} name="InfiniteQuery" />
+				<Drawer.Screen component={ReactQuery} name="ReactQuery" />
+				<Drawer.Screen component={Login} name="Login" />
+			</Drawer.Navigator>
 		);
 	}
 }
