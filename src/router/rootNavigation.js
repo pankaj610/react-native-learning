@@ -19,6 +19,7 @@ import PanGestureHandlerExample from '../components/reanimated/PanGestureHandler
 import ScrollProAnimation from '../components/reanimated/ScrollProAnimation';
 import PinGestureHandlerExample from '../components/reanimated/PinGestureHandlerExample';
 import TapGestureHandlerExample from '../components/reanimated/TapGestureHandlerExample';
+import ScrollViewPanGestureHandler from '../components/reanimated/ScrollViewPanGestureHandler';
 enableScreens();
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -35,6 +36,10 @@ class RootNavigation extends Component {
 			</Stack.Navigator>
 		) : (
 			<Drawer.Navigator>
+				<Drawer.Screen
+					component={ScrollViewPanGestureHandler}
+					name="ScrollViewPanGestureHandler"
+				/>
 				<Drawer.Screen
 					component={TapGestureHandlerExample}
 					name="TapGestureHandlerExample"
