@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const fetchPosts = ({ pageParam = 1 }) => {
 	return axios.get(
-		`https://my-json-server.typicode.com/typicode/demo/users?_limit=2&_page=${pageParam}`
+		`https://my-json-server.typicode.com/typicode/demo/posts?_limit=2&_page=${pageParam}`
 	);
 };
 
