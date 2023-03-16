@@ -20,6 +20,8 @@ import ScrollProAnimation from '../components/reanimated/ScrollProAnimation';
 import PinGestureHandlerExample from '../components/reanimated/PinGestureHandlerExample';
 import TapGestureHandlerExample from '../components/reanimated/TapGestureHandlerExample';
 import ScrollViewPanGestureHandler from '../components/reanimated/ScrollViewPanGestureHandler';
+import AnimatedClockExample from '../components/screens/AnimatedClockExample';
+import PseudoMaze from '../components/screens/PseudoMaze';
 enableScreens();
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -36,6 +38,8 @@ class RootNavigation extends Component {
 			</Stack.Navigator>
 		) : (
 			<Drawer.Navigator>
+				<Drawer.Screen component={PseudoMaze} name="PseudoMaze" />
+				<Drawer.Screen component={AnimatedClockExample} name="AnimatedClockExample" />
 				<Drawer.Screen
 					component={ScrollViewPanGestureHandler}
 					name="ScrollViewPanGestureHandler"
