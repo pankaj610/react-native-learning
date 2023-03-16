@@ -22,6 +22,9 @@ import TapGestureHandlerExample from '../components/reanimated/TapGestureHandler
 import ScrollViewPanGestureHandler from '../components/reanimated/ScrollViewPanGestureHandler';
 import AnimatedClockExample from '../components/screens/AnimatedClockExample';
 import PseudoMaze from '../components/screens/PseudoMaze';
+import WordInSentance from '../components/screens/WordInSentance';
+import AnimatedCarouselExample from '../components/screens/AnimatedCarousel';
+
 enableScreens();
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -38,6 +41,8 @@ class RootNavigation extends Component {
 			</Stack.Navigator>
 		) : (
 			<Drawer.Navigator>
+				<Drawer.Screen component={AnimatedCarouselExample} name="AnimatedCarouselExample" />
+				<Drawer.Screen component={WordInSentance} name="WordInSentance" />
 				<Drawer.Screen component={PseudoMaze} name="PseudoMaze" />
 				<Drawer.Screen component={AnimatedClockExample} name="AnimatedClockExample" />
 				<Drawer.Screen
