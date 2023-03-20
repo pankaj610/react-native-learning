@@ -24,10 +24,39 @@ import AnimatedClockExample from '../components/screens/AnimatedClockExample';
 import PseudoMaze from '../components/screens/PseudoMaze';
 import WordInSentance from '../components/screens/WordInSentance';
 import AnimatedCarouselExample from '../components/screens/AnimatedCarousel';
+import ScreenTransition, { StoreDetails } from '../components/screens/ScreenTransition';
 
 enableScreens();
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
+
+const DrawerNavigationComponent = () => {
+	return (
+		<Drawer.Navigator>
+			<Drawer.Screen component={ScreenTransition} name="ScreenTransition" />
+			<Drawer.Screen component={AnimatedCarouselExample} name="AnimatedCarouselExample" />
+			<Drawer.Screen component={WordInSentance} name="WordInSentance" />
+			<Drawer.Screen component={PseudoMaze} name="PseudoMaze" />
+			<Drawer.Screen component={AnimatedClockExample} name="AnimatedClockExample" />
+			<Drawer.Screen
+				component={ScrollViewPanGestureHandler}
+				name="ScrollViewPanGestureHandler"
+			/>
+			<Drawer.Screen component={TapGestureHandlerExample} name="TapGestureHandlerExample" />
+			<Drawer.Screen component={PinGestureHandlerExample} name="PinGestureHandlerExample" />
+			<Drawer.Screen component={ScrollProAnimation} name="ScrollProAnimation" />
+			<Drawer.Screen component={PanGestureHandlerExample} name="PanGestureHandlerExample" />
+			<Drawer.Screen component={WorkletExample} name="WorkletExample" />
+			<Drawer.Screen component={ScrollExampleComponent} name="ScrollExampleComponent" />
+			<Drawer.Screen component={ReAnimatedAnimations} name="ReAnimated" />
+			<Drawer.Screen component={LayoutAnimations} name="LayoutAnimation" />
+			<Drawer.Screen component={MutationQuery} name="MutationQuery" />
+			<Drawer.Screen component={InfiniteQuery} name="InfiniteQuery" />
+			<Drawer.Screen component={ReactQuery} name="ReactQuery" />
+			<Drawer.Screen component={Login} name="Login" />
+		</Drawer.Navigator>
+	);
+};
 class RootNavigation extends Component {
 	render() {
 		const { isSignedIn } = this.props;
@@ -40,37 +69,18 @@ class RootNavigation extends Component {
 				/>
 			</Stack.Navigator>
 		) : (
-			<Drawer.Navigator>
-				<Drawer.Screen component={AnimatedCarouselExample} name="AnimatedCarouselExample" />
-				<Drawer.Screen component={WordInSentance} name="WordInSentance" />
-				<Drawer.Screen component={PseudoMaze} name="PseudoMaze" />
-				<Drawer.Screen component={AnimatedClockExample} name="AnimatedClockExample" />
-				<Drawer.Screen
-					component={ScrollViewPanGestureHandler}
-					name="ScrollViewPanGestureHandler"
+			<Stack.Navigator>
+				<Stack.Screen
+					component={DrawerNavigationComponent}
+					name="DrawerStack"
+					options={{ headerShown: false }}
 				/>
-				<Drawer.Screen
-					component={TapGestureHandlerExample}
-					name="TapGestureHandlerExample"
+				<Stack.Screen
+					component={StoreDetails}
+					name="StoreDetails"
+					options={{ headerShown: false }}
 				/>
-				<Drawer.Screen
-					component={PinGestureHandlerExample}
-					name="PinGestureHandlerExample"
-				/>
-				<Drawer.Screen component={ScrollProAnimation} name="ScrollProAnimation" />
-				<Drawer.Screen
-					component={PanGestureHandlerExample}
-					name="PanGestureHandlerExample"
-				/>
-				<Drawer.Screen component={WorkletExample} name="WorkletExample" />
-				<Drawer.Screen component={ScrollExampleComponent} name="ScrollExampleComponent" />
-				<Drawer.Screen component={ReAnimatedAnimations} name="ReAnimated" />
-				<Drawer.Screen component={LayoutAnimations} name="LayoutAnimation" />
-				<Drawer.Screen component={MutationQuery} name="MutationQuery" />
-				<Drawer.Screen component={InfiniteQuery} name="InfiniteQuery" />
-				<Drawer.Screen component={ReactQuery} name="ReactQuery" />
-				<Drawer.Screen component={Login} name="Login" />
-			</Drawer.Navigator>
+			</Stack.Navigator>
 		);
 	}
 }

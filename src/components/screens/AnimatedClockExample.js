@@ -24,7 +24,6 @@ function AnimatedClockExample() {
 		timerRef.current = setInterval(() => {
 			timer.current += 1;
 			tick.setValue(timer.current);
-			console.log(timer.current);
 		}, TICK_INTERVAL);
 
 		return () => {

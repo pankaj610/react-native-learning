@@ -3,60 +3,14 @@ import { Animated, Dimensions, Image, StatusBar, StyleSheet, Text, View } from '
 import { Svg, Defs, RadialGradient, Stop, Rect } from 'react-native-svg';
 
 const { width, height } = Dimensions.get('screen');
-// Object {
-//     "i": 0,
-//     "inputRange": Array [
-//       -392.72727272727275,
-//       0,
-//       392.72727272727275,
-//     ],
-//   }
-//   Object {
-//     "i": 1,
-//     "inputRange": Array [
-//       0,
-//       392.72727272727275,
-//       785.4545454545455,
-//     ],
-//   }
-//   Object {
-//     "i": 3,
-//     "inputRange": Array [
-//       785.4545454545455,
-//       1178.1818181818182,
-//       1570.909090909091,
-//     ],
-//   }
-//   Object {
-//     "i": 4,
-//     "inputRange": Array [
-//       1178.1818181818182,
-//       1570.909090909091,
-//       1963.6363636363637,
-//     ],
-//   }
-//   Object {
-//     "i": 5,
-//     "inputRange": Array [
-//       1570.909090909091,
-//       1963.6363636363637,
-//       2356.3636363636365,
-//     ],
-//   }
-//   Object {
-//     "i": 7,
-//     "inputRange": Array [
-//       2356.3636363636365,
-//       2749.090909090909,
-//       3141.818181818182,
-//     ],
-//   }
+ 
 const AnimatedCarousel = ({ productList }) => {
 	const _scrollX = useRef(new Animated.Value(0));
 
 	const renderItem = (item, i) => {
+		console.log(i);
 		const inputRange = [(i - 1) * width, i * width, (i + 1) * width];
-
+ 
 		const imageScale = _scrollX.current.interpolate({
 			inputRange,
 			outputRange: [0.4, 1, 0.4],
@@ -151,8 +105,7 @@ const AnimatedCarousel = ({ productList }) => {
 				</Svg>
 			</Animated.View>
 		);
-	};
-
+	}; 
 	return (
 		<Animated.ScrollView
 			pagingEnabled
@@ -167,6 +120,7 @@ const AnimatedCarousel = ({ productList }) => {
 				],
 				{
 					useNativeDriver: true,
+					listener: (event)=> {}
 				}
 			)}>
 			<StatusBar hidden />
@@ -272,7 +226,7 @@ const PRODUCT_LIST = [
 		price: '💲30',
 		bg: '#bbb',
 	},
-	,
+	
 	{
 		id: '1234x123z12',
 		title: 'Maharishi Waistbag',
@@ -306,7 +260,7 @@ const PRODUCT_LIST = [
 		price: '💲30',
 		bg: '#bbb',
 	},
-	,
+	
 	{
 		id: '1234x123z12a',
 		title: 'Maharishi Waistbag',
