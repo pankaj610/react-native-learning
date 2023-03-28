@@ -25,6 +25,7 @@ import PseudoMaze from '../components/screens/PseudoMaze';
 import WordInSentance from '../components/screens/WordInSentance';
 import AnimatedCarouselExample from '../components/screens/AnimatedCarousel';
 import ScreenTransition, { StoreDetails } from '../components/screens/ScreenTransition';
+import AnimatedTabBar from '../components/screens/AnimatedTabBar';
 
 enableScreens();
 const Stack = createNativeStackNavigator();
@@ -33,6 +34,7 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigationComponent = () => {
 	return (
 		<Drawer.Navigator>
+			<Drawer.Screen component={AnimatedTabBar} name="AnimatedTabBar" />
 			<Drawer.Screen component={ScreenTransition} name="ScreenTransition" />
 			<Drawer.Screen component={AnimatedCarouselExample} name="AnimatedCarouselExample" />
 			<Drawer.Screen component={WordInSentance} name="WordInSentance" />
