@@ -30,7 +30,7 @@ function AnimatedTabBar() {
 		});
 		const translateX = scrollX.interpolate({
 			inputRange,
-			outputRange: measures.map((measure) => measure.x),
+			outputRange: measures.map((measure) => measure.x + 5),
 		});
 		return (
 			<Animated.View
@@ -38,6 +38,7 @@ function AnimatedTabBar() {
 					position: 'absolute',
 					height: 4,
 					width: indicatorWidth,
+					borderRadius: 8,
 					left: translateX,
 					backgroundColor: 'black',
 					bottom: -10,
@@ -59,7 +60,7 @@ function AnimatedTabBar() {
 					}
 				});
 			});
-		}, []);
+		}, [containerRef.current]);
 		return (
 			<View style={{ position: 'absolute', top: 100, paddingHorizontal: 5 }}>
 				<ScrollView horizontal showsHorizontalScrollIndicator={false} ref={scrollBar}>
