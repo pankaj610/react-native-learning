@@ -3,8 +3,10 @@ import AppEntry from './src/AppEntry';
 import 'react-native-gesture-handler';
 
 
-export default function App() {
+const App = () => {
   return (
-    <AppEntry/>
+    <AppEntry />
   );
 }
+
+export default App;

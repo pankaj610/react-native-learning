@@ -1,6 +1,7 @@
 import axios, { Axios } from "axios";
-import BASE_URL from "./environment";
-import { Storage } from "./utils";
+import { BASE_URL } from "./environment";
+
+
 
 export const VERSION = {
   V1: "/api/v1",
@@ -41,7 +42,10 @@ export function fetchAPI(request) {
   const opts = {
     url: request.url,
     method: request.method || METHOD.GET,
+    headers: {},
+    data: null,
   };
+
   if (request.data) {
     opts.data = request.data;
   }
