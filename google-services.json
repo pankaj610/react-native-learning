@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "445247972972",
+    "project_id": "pjbilling-318f4",
+    "storage_bucket": "pjbilling-318f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445247972972:android:16c5e0f308b08191241a49",
+        "android_client_info": {
+          "package_name": "com.pankajverma.pjbilling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "445247972972-me3jgcbq520ngiih430ufr6hi5vuaevd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApAJMXsxk8RF9uxXZ5IwArgkUnMGyPf0k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "445247972972-me3jgcbq520ngiih430ufr6hi5vuaevd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

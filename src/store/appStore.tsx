@@ -1,3 +1,4 @@
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { create } from "zustand";
 
 
@@ -7,6 +8,6 @@ export const useAppStore = create<AppStateType>((set) => ({
         set((state) => ({ ...state, isLoggedIn: value }))
     },
     login: () => {
-
+        GoogleSignin.signIn();
     }
 }))

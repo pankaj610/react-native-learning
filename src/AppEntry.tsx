@@ -6,12 +6,10 @@ import RootNavigation from './router/RootNavigation';
 
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-// import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
-// GoogleSignin.configure({
-//   webClientId: '376495499824-5t95jnj5vnj4rgplp0fkvn2707q6b7rb.apps.googleusercontent.com',
-//   offlineAccess: true,
-// });
+GoogleSignin.configure();
+
 const queryClient = new QueryClient();
 const AppEntry = () => {
 
