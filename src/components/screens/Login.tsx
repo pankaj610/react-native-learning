@@ -6,7 +6,7 @@ import tw from '../../utils.js/tw';
 import StyledImage from '../common/StyledImage';
 
 const Login: React.FC<{}> = () => {
-	const { login } = useAppStore();
+	const { login, loading } = useAppStore();
 
 	return (
 		<ImageBackground source={{

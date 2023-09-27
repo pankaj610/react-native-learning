@@ -6,19 +6,15 @@ import {
 } from '@react-navigation/drawer';
 import React from 'react';
 import BottomNavigation from './BottomTab';
-import IonIcons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
+import MyHeader from '../components/layout/MyHeader';
+import { APP_NAME } from '../constants';
+import { useAppStore } from '../store/appStore';
 
 const Drawer = createDrawerNavigator();
 
-const DrawerNavigation = (props) => {
-	const navigation = useNavigation();
-
-	const signOut = () => {
-
-		// await GoogleSignin.signOut();
-		signOut();
-	}
+const DrawerNavigation = () => {
+	const { signOut } = useAppStore();
 
 	return (
 		<Drawer.Navigator
@@ -35,29 +31,15 @@ const DrawerNavigation = (props) => {
 			}}>
 			<Drawer.Screen
 				component={BottomNavigation}
-				name="ISKCON Calling Management"
+				name="Billing"
 				options={() => ({
-					headerRight: (props) => (
-						<IonIcons
-							name="add-outline"
-							size={30}
-							style={{ marginRight: 12 }}
-							onPress={() =>
-								navigation.navigate({ key: 'DevoteeRegistration' })
-							}
-						/>
-					),
-					// header: ({ navigation, route, options }) => {
-					//   const title = getHeaderTitle(options, route.name);
-
-					//   return (
-					//     <MyHeader
-					//       title={title}
-					//       style={options.headerStyle}
-					//       navigation={navigation}
-					//     />
-					//   );
-					// },
+					header: () => {
+						return (
+							<MyHeader
+								title={APP_NAME}
+							/>
+						);
+					},
 					swipeEnabled: true,
 				})}
 			/>

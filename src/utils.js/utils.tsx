@@ -1,6 +1,5 @@
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { TOKEN } from '../constants';
 
 export const Storage = {
     save: async (key, data) => {
@@ -10,10 +9,11 @@ export const Storage = {
     get: async (key) => {
         let json = await AsyncStorage.getItem(key);
         return JSON.parse(json);
-    }
-}
-
-export const getToken = async () => {
-    let token = await Storage.get(TOKEN);
-    return token;
+    },
+    remove: async (key) => {
+        await AsyncStorage.removeItem(key);
+    },
+    removeAll: async () => {
+        await AsyncStorage.clear();
+    },
 }

@@ -4,6 +4,7 @@ const { screenHeight, screenWidth } = require('../constants/styleConstants');
 // update DesignSystemTypes.ts file after any update to keep types in sync
 const themeColors = {
 	black: '#000000',
+	lightGreyOpacity: '#0000001A',
 	white: '#fff',
 	pink: '#00ff00',
 	lightBlue: '#48A7FF',
@@ -32,6 +33,7 @@ module.exports = {
 		},
 		fontFamily: {
 			roboto: ['Roboto'],
+			primaryBold: ['Nunito-Bold'],
 		},
 		fontSize: {
 			vxs: '6px',
